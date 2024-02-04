@@ -27,7 +27,7 @@ export const MY_FORMATS = {
   ]
 })
 export class AppComponent {
-  headerImage = '../assets/header.jpg';
+  headerImage = 'https://i.ibb.co/xJVppkb/header.jpg';
   forms = new FormGroup({
     name: new FormControl<string | null>('', [Validators.required]),
     age: new FormControl<number | null>(null, [Validators.required]),
