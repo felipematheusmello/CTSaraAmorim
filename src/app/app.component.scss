@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    margin-left: 25px;
+}
+
+.form-container {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 10px;
+    width: 100%;
+}
+
+.photo {
+    width: 100%;
+    height: 15rem;
+    border-radius: 10px;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0rem;
+    margin-top: 5rem;
+}
