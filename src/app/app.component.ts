@@ -30,7 +30,7 @@ export class AppComponent {
   headerImage = 'https://i.ibb.co/xJVppkb/header.jpg';
   forms = new FormGroup({
     name: new FormControl<string | null>('', [Validators.required]),
-    age: new FormControl<number | null>(null, [Validators.required]),
+    age: new FormControl<number | null>(null, [Validators.required, Validators.min(5)]),
     date: new FormControl<Date | null>(null, [Validators.required]),
     hour: new FormControl<number | null>(null, [Validators.required]),
     trainingStory: new FormControl<string | null>('', [Validators.required])
@@ -38,8 +38,11 @@ export class AppComponent {
 
   horas_disponiveis = [] as number[]
   myFilter = (d: Date | null): boolean => {
+    if (!this.forms.controls.age.valid) {
+      return false;
+    }
     if (this.forms.controls.age.value) {
-      if (this.forms.controls.age.value <= 12) {
+      if (this.forms.controls.age.value < 12 && this.forms.controls.age.value >= 5) {
         return moment(d).day() === 1 || moment(d).day() === 3;
       }
 
@@ -54,7 +57,7 @@ export class AppComponent {
       this.horas_disponiveis = [];
       return
     }
-    if (this.forms.controls.age.value <= 12) {
+    if (this.forms.controls.age.value < 12 && this.forms.controls.age.value >= 5) {
       this.horas_disponiveis = [19]
       return;
     }
