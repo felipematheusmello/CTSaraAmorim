@@ -42,11 +42,8 @@ export class AppComponent {
       return false;
     }
     if (this.forms.controls.age.value) {
-      if (this.forms.controls.age.value < 12 && this.forms.controls.age.value >= 5) {
-        return moment(d).day() === 1 || moment(d).day() === 3;
-      }
 
-      return moment(d).day() !== 0;
+      return moment(d).day() === 1 || moment(d).day() === 4;
     }
     return false;
   }
@@ -57,19 +54,7 @@ export class AppComponent {
       this.horas_disponiveis = [];
       return
     }
-    if (this.forms.controls.age.value < 12 && this.forms.controls.age.value >= 5) {
-      this.horas_disponiveis = [19]
-      return;
-    }
-    if ( moment(date).day()  !== 0 ) {
-      console.log(`DAY ${moment(date).day()}`)
-      if ( moment(date).day() !== 6) {
-        this.horas_disponiveis = [18, 20]
-      } else {
-        this.horas_disponiveis = [9]
-      }
-    }
-    console.log(this.horas_disponiveis)
+    this.horas_disponiveis = [19];
   }
 
   changeAge(event: string | null) {
